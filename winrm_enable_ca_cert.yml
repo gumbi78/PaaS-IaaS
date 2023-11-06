@@ -10,19 +10,19 @@
 
   tasks:
     # we generate a self-signed cert as an example, you can remove this task if you have an existing certificate
-    - name: generate a new self-signed cert
-      win_shell: |
-        $store_location = 'cert:\localmachine\my'
-        $cert = New-SelfSignedCertificate -certstorelocation $store_location -dnsname {{ ansible_fqdn }}
-        $pwd = ConvertTo-SecureString -String "{{ ansible_password }}" -Force -AsPlainText
-        $path = $store_location + '{{"\\"}}' + $cert.thumbprint
-        Export-PfxCertificate -cert $path -FilePath C:\winrm_cert.p12 -Password $pwd
+    # - name: generate a new self-signed cert
+    #  win_shell: |
+    #    $store_location = 'cert:\localmachine\my'
+    #    $cert = New-SelfSignedCertificate -certstorelocation $store_location -dnsname {{ ansible_fqdn }}
+    #    $pwd = ConvertTo-SecureString -String "{{ ansible_password }}" -Force -AsPlainText
+    #    $path = $store_location + '{{"\\"}}' + $cert.thumbprint
+    #    Export-PfxCertificate -cert $path -FilePath C:\winrm_cert.p12 -Password $pwd
 
     # uncomment the task below and update the src in this task if you want to copy and import and existing cert
-    #- name: copy CA cert
-    #  win_copy:
-    #    src: cert.pfx
-    #    dest: C:\winrm_cert.p12
+    - name: copy CA cert
+      win_copy:
+        src: cert.pfx
+        dest: C:\winrm_cert.p12
 
     - name: import cert
       win_certificate_store:
