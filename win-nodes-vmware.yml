@@ -1,9 +1,9 @@
 ---
 providers:
-  vcenter:
-    datacenter: cloud
-    cluster: mylab
-    resource_pool: manageto
+  vcenter: dhsdrvmvs01.dhs.state.ia.us
+    datacenter: "JOHNSTON SITE"
+    cluster: DHS_DR_JOHNSTON
+    resource_pool:
 
 nodes:
   - name: wintest1
@@ -11,18 +11,18 @@ nodes:
     app_name: windows_demo
     environment: dev
     networks:
-    - name: mgmt
-      ip: 192.168.1.52
-      netmask: 255.255.255.0
-      gateway: 192.168.1.254
-      domain: home.ad
+    - name: VLAN129
+      ip: 
+      netmask: 
+      gateway: 
+      domain: dhs.state.ia.us
       dns_servers:
-      - 192.168.1.254
-      - 8.8.4.4
-    domain: home.ad
+      - 165.206.129.244
+      - 165.206.66.243
+    domain: dhs.state.ia.us
     memory: "{{ node_memory | default(4096) }}"
     cpu: "{{ node_cpu | default(2) }}"
-    template: "{{ win_template_name | default('windows-2019-standard-core') }}"
+    template: "{{ win_template_name | default('windows-2022-standard-core') }}"
     snapshot_src: Linked
     linked_clone: True
     customization:
