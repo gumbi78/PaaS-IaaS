@@ -1,0 +1,13 @@
+---
+
+- name: Fix a broken Service
+  hosts: all
+
+  tasks:
+    - name: Fix Print Spooler Service
+      win_service:
+        name: Spooler
+        username: LocalSystem
+        password: ""
+        state: started
+        start_mode: auto

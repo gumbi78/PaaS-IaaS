@@ -1,0 +1,6 @@
+- name: Collect log file
+  hosts: all
+  vars:
+    install_with: ini
+  roles:
+    - role: collect-log

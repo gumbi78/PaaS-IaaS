@@ -1,0 +1,6 @@
+- name: Install IIS with DSC
+  hosts: all
+  vars:
+    install_with: ini
+  roles:
+    - iis-dsc

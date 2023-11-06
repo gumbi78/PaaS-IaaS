@@ -1,0 +1,5 @@
+- name: Provision Windows AD Controller
+  hosts: all
+
+  roles:
+    - ansible-role-windows-ad-controller

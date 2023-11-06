@@ -1,0 +1,5 @@
+- name: Setup Various Services
+  hosts: Services
+
+  roles:
+  - services

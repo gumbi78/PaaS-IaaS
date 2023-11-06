@@ -1,0 +1,6 @@
+- name: remove computer object to the domain
+  hosts: all
+
+  roles:
+    - role: ad-computer-registration
+      role_action: deregister

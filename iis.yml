@@ -1,0 +1,5 @@
+- name: Install IIS
+  hosts: all
+
+  roles:
+  - iis
