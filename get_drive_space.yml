@@ -1,7 +1,7 @@
 ---
 
 - name: Get drive space
-  hosts: all
+  hosts: localhost
 
   tasks:
     - name: get drive space
