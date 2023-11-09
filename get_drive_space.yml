@@ -1,7 +1,7 @@
 ---
 
 - name: Get drive space
-  hosts: localhost
+  hosts: win
 
   tasks:
     - name: get drive space
