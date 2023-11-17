@@ -1,6 +1,6 @@
 ---
 - name: Get disk facts
-  community.windows.win_disk_facts:
+  community.windows:
 
 - name: Output first disk size
   debug:
