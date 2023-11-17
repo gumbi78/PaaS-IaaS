@@ -1,5 +1,5 @@
 ---
-- name: Get disk facts
+- name: get_disk_facts
   community.windows:
 
 - name: Output first disk size
